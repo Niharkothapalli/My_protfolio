@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { scroll-behavior: smooth; box-sizing: border-box; }
+  body {
+    background-color: #ffffff;
+    color: #18181b;
+    font-family: 'Rajdhani', system-ui, sans-serif;
+    font-weight: 500;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #f4f4f5; }
+  ::-webkit-scrollbar-thumb { background: #000000; }
+}
+
+@layer components {
+
+  /* Technical Grid Overlay */
+  .bp-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.10) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.10) 1px, transparent 1px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Cut-corner geometry */
+  .angle-br {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+  }
+  .angle-br-lg {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
+  }
+
+  /* Cyber Box – the core card style */
+  .cyber-box {
+    background: #f4f4f5;
+    border: 1px solid #d4d4d8;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.10);
+    position: relative;
+    transition: all 0.2s ease;
+  }
+  .cyber-box::before,
+  .cyber-box::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-color: #000;
+    border-style: solid;
+  }
+  .cyber-box::before {
+    top: -1px; left: -1px;
+    border-width: 2px 0 0 2px;
+  }
+  .cyber-box::after {
+    bottom: -1px; right: -1px;
+    border-width: 0 2px 2px 0;
+  }
+  .cyber-box:hover {
+    background: #18181b;
+    border-color: #000000;
+    color: #ffffff;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.9);
+  }
+  .cyber-box:hover .cb-title { color: #ffffff; }
+  .cyber-box:hover .cb-muted { color: #a1a1aa; }
+  .cyber-box:hover .cb-accent { color: #22c55e; }
+  .cyber-box:hover .cb-icon { color: #ffffff; }
+  .cyber-box:hover .cb-tag {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.15);
+    color: #ffffff;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-bold uppercase tracking-widest text-sm transition-all duration-200 angle-br;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+    font-family: 'Rajdhani', sans-serif;
+  }
+  .btn-primary:hover {
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.9);
+    transform: translate(-1px, -1px);
+  }
+
+  /* Outline button */
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-white text-black border-2 border-black font-bold uppercase tracking-widest text-sm transition-all duration-200 angle-br;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.9);
+    font-family: 'Rajdhani', sans-serif;
+  }
+  .btn-outline:hover {
+    background: #000;
+    color: #fff;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.5);
+    transform: translate(-1px, -1px);
+  }
+
+  /* Section padding */
+  .section-padding {
+    @apply py-20 px-6 md:px-12 lg:px-24;
+  }
+
+  /* Section label */
+  .section-label {
+    font-family: 'Share Tech Mono', monospace;
+    @apply text-xs text-muted uppercase tracking-widest mb-2;
+  }
+
+  /* Section heading */
+  .section-heading {
+    font-family: 'Rajdhani', sans-serif;
+    @apply text-4xl md:text-5xl font-bold uppercase tracking-wide text-black;
+  }
+
+  /* Terminal blinking cursor */
+  .terminal-cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.1em;
+    background: #000;
+    vertical-align: text-bottom;
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+  }
+
+  /* Tag pill */
+  .tag {
+    font-family: 'Share Tech Mono', monospace;
+    @apply text-xs px-2.5 py-1 border border-line bg-surface text-muted uppercase tracking-wider cb-tag;
+    transition: all 0.2s;
+  }
+
+  /* Status dot */
+  .status-online {
+    @apply inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-green-600;
+  }
+  .status-online::before {
+    content: '';
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Divider line */
+  .bp-divider {
+    @apply w-12 h-0.5 bg-black mb-6;
+  }
+}
+
+@layer utilities {
+  .font-mono { font-family: 'Share Tech Mono', monospace; }
+  .text-muted { color: #71717a; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
