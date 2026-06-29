@@ -1,9 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" fill="#000000"/>
-  <!-- Letter N -->
-  <text x="5" y="26" font-family="Georgia, serif" font-weight="700" font-size="22" fill="white">N</text>
-  <!-- 4-point sparkle star at top-right of N -->
-  <g transform="translate(22, 8)">
-    <path d="M0,-5 C0.3,-1.5 1.5,-0.3 5,0 C1.5,0.3 0.3,1.5 0,5 C-0.3,1.5 -1.5,0.3 -5,0 C-1.5,-0.3 -0.3,-1.5 0,-5 Z" fill="white"/>
+  <text x="4" y="27" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="24" fill="white">N</text>
+  <g transform="translate(24, 7)">
+    <path d="M0,-4.5 C0.4,-1.4 1.4,-0.4 4.5,0 C1.4,0.4 0.4,1.4 0,4.5 C-0.4,1.4 -1.4,0.4 -4.5,0 C-1.4,-0.4 -0.4,-1.4 0,-4.5 Z" fill="white"/>
   </g>
 </svg>
